@@ -16,5 +16,5 @@ jobs:
           who-to-greet: 'MR Ghost'
           why-to-greet: 'because he is a nice person'
       # Use the output from the `hello` step
-      - name: Get the output time
+      - name: Get the output times
         run: echo "The time was ${{ steps.hello.outputs.time }}"
