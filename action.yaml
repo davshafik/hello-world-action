@@ -1,20 +1,35 @@
 # action.yml
-name: 'Dav Says hello'
+name: 'Build / Publish docker images'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-  why-to-greet:
-    description: 'why greeting people'
+  registery:
+    description: 'registery url'
     required: false
+  docker_repo:
+    description: 'docker repo name for example docker/gcm'
+    required: false
+  context:  # location of dockerfile to be build
+    description: 'location of dockerfile to be build'
+    required: true
+    default: '.'
+  reg-username:
+    description: 'registery username'
+    required: false
+  reg-password:
+    description: 'registery username'
+    required: false
+  img-ver:
+    description: 'docker image version'
+    required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  image-name: # id of output
+    description: 'the name of the image that was built/published'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
-    - ${{ inputs.why-to-greet }}
+    - ${{ inputs.registery }}
+    - ${{ inputs.docker_repo }}
+    - ${{ inputs.context }}
+    - ${{ inputs.reg-username }}
+    - ${{ inputs.reg-password }}

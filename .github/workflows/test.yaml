@@ -11,10 +11,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
-        id: hello-and-why
+        id: docker-build-push
         with:
-          who-to-greet: 'MR Ghost'
-          why-to-greet: 'because he is a nice person'
+          registery: 'napoleongames.jfrog.io'
+          docker_repo: 'docker/davtest'
+          img-ver: 'develop'
       # Use the output from the `hello` step
       - name: Get the output times
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was ${{ steps.docker-build-push.outputs.image-name }}"
