@@ -33,3 +33,4 @@ runs:
     - ${{ inputs.context }}
     - ${{ inputs.reg-username }}
     - ${{ inputs.reg-password }}
+    - ${{ inputs.img-ver }}
