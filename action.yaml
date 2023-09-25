@@ -1,6 +1,6 @@
 # action.yml
 name: 'Build / Publish docker images'
-description: 'Greet someone and record the time'
+description: 'build and publish a docker image'
 inputs:
   registery:
     description: 'registery url'
